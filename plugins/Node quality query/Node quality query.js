@@ -14,8 +14,9 @@ const IP_QUERY_APIS = [
   "https://api.ip.sb/json"
 ];
 
-// Quantumult X 参数（argument=xxx）
-const policyName = $argument || "当前策略";
+// Quantumult X 参数（兼容写法）
+const policyName =
+  (typeof $argument !== "undefined" && $argument) ? $argument : "当前策略";
 
 // ===== Quantumult X Fetch =====
 function httpGet(url, headers = {}) {
