@@ -16,7 +16,7 @@
 force-http-engine-hosts = script.hub, *.script.hub
 
 [Rule]
-DOMAIN,scripthub.vercel.app,PROXY
+DOMAIN,scripthub.vercel.app,终极清单
 
 [Script]
 http-request ^https?:\/\/script\.hub\/($|edit\/|reload) script-path=https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/script-hub.js, timeout=300, tag=Script Hub: 前端
