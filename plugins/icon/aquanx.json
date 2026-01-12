@@ -1,6 +1,6 @@
 {
 "name":"自用图标库", 
-"description":"自用收集,如有侵权请联系删除", 
+"description":"自用收集全部为 144px,如有侵权请联系删除", 
 "icons":
   [
 {"name":"kuaisho.png","url":"https://raw.githubusercontent.com/SXIE-ai/Quantumult-X/refs/heads/main/plugins/icon/kuaisho.png"},
@@ -13,7 +13,7 @@
 {"name":"iTunes.png","url":"https://raw.githubusercontent.com/SXIE-ai/Quantumult-X/refs/heads/main/plugins/icon/iTunes.PNG"},
 {"name":"kuwoyinyue.png","url":"https://raw.githubusercontent.com/SXIE-ai/Quantumult-X/refs/heads/main/plugins/icon/kuwoyinyue.PNG"},
 {"name":"Appletianqi.png","url":"https://raw.githubusercontent.com/SXIE-ai/Quantumult-X/refs/heads/main/plugins/icon/Appletianqi.PNG"},
-
+{"name":"Youtube.png","url":"https://raw.githubusercontent.com/SXIE-ai/Quantumult-X/refs/heads/main/plugins/icon/Youtube.PNG"},
 
 
   ]
