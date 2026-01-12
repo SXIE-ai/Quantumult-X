@@ -1,1 +1,8 @@
+{
+"name":"自用图标库", 
+"description":"自用收集", 
+"icons":
+  [
 {"name":"kuaisho.png","url":"https://raw.githubusercontent.com/SXIE-ai/Quantumult-X/refs/heads/main/plugins/icon/IMG_4005.png"},
+  ]
+}
