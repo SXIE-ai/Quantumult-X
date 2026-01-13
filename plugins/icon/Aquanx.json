@@ -1,6 +1,6 @@
 {
 "name":"自用图标库", 
-"description":"自用收集全部为 144px,如有侵权请联系删除", 
+"description":"自用收集 Quantumult 重写图标，全部为 144px 如有侵权请联系删除", 
 "icons":
   [
 {"name":"kuaisho.png","url":"https://raw.githubusercontent.com/SXIE-ai/Quantumult-X/refs/heads/main/plugins/icon/kuaisho.png"},
@@ -29,6 +29,8 @@
 {"name":"pindd.png","url":"https://raw.githubusercontent.com/SXIE-ai/Quantumult-X/refs/heads/main/plugins/icon/pindd.png"},
 {"name":"jiedian.png","url":"https://raw.githubusercontent.com/SXIE-ai/Quantumult-X/refs/heads/main/plugins/icon/jiedian.PNG"},
 {"name":"jingdong.png","url":"https://raw.githubusercontent.com/SXIE-ai/Quantumult-X/refs/heads/main/plugins/icon/jingdong.PNG"},
+{"name":"meituan.png","url":"https://raw.githubusercontent.com/SXIE-ai/Quantumult-X/refs/heads/main/plugins/icon/meituan.PNG"},
+
 
   ]
 }
