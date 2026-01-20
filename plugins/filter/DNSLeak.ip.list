@@ -1,0 +1,18 @@
+host-suffix,astrill.com,PROXY
+host-suffix,dnsleaktest.com,PROXY
+host-suffix,dnsleak.com,PROXY
+host-suffix,expressvpn.com,PROXY
+host-suffix,nordvpn.com,PROXY
+host-suffix,surfshark.com,PROXY
+host-suffix,ipleak.net,PROXY
+host-suffix,perfect-privacy.com,PROXY
+host-suffix,browserleaks.com,PROXY
+host-suffix,browserleaks.org,PROXY
+host-suffix,vpnunlimited.com,PROXY
+host-suffix,whoer.net,PROXY
+host-suffix,whrq.net,PROXY
+ip-cidr, 10.0.0.0/8, direct
+ip-cidr, 127.0.0.0/8, direct
+ip-cidr, 172.16.0.0/12, direct
+ip-cidr, 192.168.0.0/16, direct
+ip-cidr, 224.0.0.0/24, direct
