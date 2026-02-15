@@ -1,0 +1,15 @@
+; pear2 下载/订阅分发
+host-suffix, pear2.cc,日本时延优选
+; javdb下载
+host-suffix, 029xxj.com,日本时延优选
+
+
+
+
+; xx9.com下载
+host,tigerscos.babeshop.xyz,日本时延优选
+; 字节系直连 豆包
+host,downloaddispatch.itunes.apple.com,DIRECT
+; 微信直连
+host,dns.weixin.qq.com,DIRECT
+host,dns.weixin.qq.com.cn,DIRECT
