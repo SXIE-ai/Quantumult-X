@@ -10,8 +10,4 @@ host-suffix,ut.lnh7.com,日本时延优选
 
 ; xx9.com下载
 host,tigerscos.babeshop.xyz,日本时延优选
-; 字节系直连 豆包
-host,downloaddispatch.itunes.apple.com,DIRECT
-; 微信直连
-host,dns.weixin.qq.com,DIRECT
-host,dns.weixin.qq.com.cn,DIRECT
+
