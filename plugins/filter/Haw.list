@@ -1,0 +1,15 @@
+# > 红果短剧 (番茄短剧) 视频流分流
+HOST-SUFFIX, pstatp.com, PROXY
+HOST-SUFFIX, byteimg.com, PROXY
+HOST-SUFFIX, bdurl.net, PROXY
+HOST-SUFFIX, bytedance.com, PROXY
+HOST-SUFFIX, bytecdntp.com, PROXY
+HOST-SUFFIX, qznovelvod.com,PROXY
+HOST-SUFFIX, toutiaov.com, PROXY
+HOST-SUFFIX, qznovelvod.com,PROXY
+HOST-KEYWORD, snssdk, PROXY
+HOST-KEYWORD, amemv, PROXY
+HOST-KEYWORD, video-modules, PROXY
+HOST-KEYWORD, volces, PROXY
+
+
