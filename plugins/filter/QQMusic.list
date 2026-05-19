@@ -9,10 +9,6 @@ host,oth.str.mdt.qq.com,reject
 host,h.trace.qq.com,reject
 host,gatherer.m.qq.com,reject
 host-suffix,twns.qq.com,reject
-URL-REGEX,^https?://y\.qq\.com/jzt/.*,REJECT
-URL-REGEX,^https?://y\.qq\.com/v3/static/.*,REJECT
-URL-REGEX,^https?://y\.qq\.com/.*\.json\?.*,REJECT
-
 host,ad.tencentmusic.com,reject
 host,adstats.tencentmusic.com,reject
 host,adcdn.tencentmusic.com,reject
