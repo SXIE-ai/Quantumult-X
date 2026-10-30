@@ -1,0 +1,3 @@
+;苹果系统禁止更新
+host, xp.apple.com, reject
+host, gdmf.apple.com, reject
