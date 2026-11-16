@@ -1,2 +1,2 @@
 ; CN 规则
-geoip, cn, direct
+{#CN#} geoip, cn, direct
