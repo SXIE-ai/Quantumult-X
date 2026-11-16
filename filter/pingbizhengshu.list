@@ -17,33 +17,33 @@
 [Rule]
 
 # Apple OCSP
-DOMAIN,ocsp.apple.com,REJECT
-DOMAIN,ocsp2.apple.com,REJECT
+{#证书屏蔽验证#} DOMAIN,ocsp.apple.com,REJECT
+{#证书屏蔽验证#} DOMAIN,ocsp2.apple.com,REJECT
 
 # Apple Validation
-DOMAIN,valid.apple.com,REJECT
-DOMAIN,ppq.apple.com,REJECT
-DOMAIN,ppq-ext.v.aaplimg.com,REJECT
+{#证书屏蔽验证#} DOMAIN,valid.apple.com,REJECT
+{#证书屏蔽验证#} DOMAIN,ppq.apple.com,REJECT
+{#证书屏蔽验证#} DOMAIN,ppq-ext.v.aaplimg.com,REJECT
 
 # Apple CRL
-DOMAIN,crl.apple.com,REJECT
-DOMAIN,certs.apple.com,REJECT
+{#证书屏蔽验证#} DOMAIN,crl.apple.com,REJECT
+{#证书屏蔽验证#} DOMAIN,certs.apple.com,REJECT
 
 # DigiCert
-DOMAIN,ocsp.digicert.com,REJECT
-DOMAIN,ocsp.digicert.cn,REJECT
-DOMAIN,crl3.digicert.com,REJECT
-DOMAIN,crl4.digicert.com,REJECT
+{#证书屏蔽验证#} DOMAIN,ocsp.digicert.com,REJECT
+{#证书屏蔽验证#} DOMAIN,ocsp.digicert.cn,REJECT
+{#证书屏蔽验证#} DOMAIN,crl3.digicert.com,REJECT
+{#证书屏蔽验证#} DOMAIN,crl4.digicert.com,REJECT
 
 # Entrust
-DOMAIN,ocsp.entrust.net,REJECT
-DOMAIN,crl.entrust.net,REJECT
+{#证书屏蔽验证#} DOMAIN,ocsp.entrust.net,REJECT
+{#证书屏蔽验证#} DOMAIN,crl.entrust.net,REJECT
 
 # Sectigo / USERTrust
-DOMAIN,ocsp.sectigo.com,REJECT
-DOMAIN,crl.sectigo.com,REJECT
-DOMAIN,ocsp.usertrust.com,REJECT
-DOMAIN,crl.usertrust.com,REJECT
+{#证书屏蔽验证#} DOMAIN,ocsp.sectigo.com,REJECT
+{#证书屏蔽验证#} DOMAIN,crl.sectigo.com,REJECT
+{#证书屏蔽验证#} DOMAIN,ocsp.usertrust.com,REJECT
+{#证书屏蔽验证#} DOMAIN,crl.usertrust.com,REJECT
 
 [MITM]
 hostname = ocsp.apple.com,ocsp2.apple.com,valid.apple.com, 
