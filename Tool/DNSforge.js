@@ -80,7 +80,12 @@ function http(method, path, body, token) {
 }
 
 function errText(r) {
-  return (r.data && (r.data.message || (r.data.error && r.data.error.message))) || '';
+  return (
+    (r.data &&
+      (r.data.message ||
+        (r.data.error && (r.data.error.message || r.data.error.code)))) ||
+    ''
+  );
 }
 
 function extractTokens(obj) {
@@ -190,10 +195,17 @@ if (typeof $response !== 'undefined') {
       }
       if (st.status === 200 && st.data) {
         const d = st.data.data || st.data;
-        const done = d.checked_in_today ?? d.checkedIn ?? d.today_checked_in ?? d.is_checked_in ?? d.checked;
+        const done =
+          d.checked_today ??
+          d.checked_in_today ??
+          d.checkedIn ??
+          d.today_checked_in ??
+          d.is_checked_in ??
+          d.checked;
         log(`签到状态查询结果 | done=${done}`);
         if (done === true) {
-          notify('DNSForge 签到', '今日已签到, 无需重复签到');
+          const daysInfo = d.member_days != null ? `，会员剩余 ${d.member_days} 天` : '';
+          notify('DNSForge 签到', `今日已签到, 无需重复签到${daysInfo}`);
           return $done();
         }
       }
@@ -208,13 +220,25 @@ if (typeof $response !== 'undefined') {
         return $done();
       }
       const msg = errText(r);
-      if (r.status === 200) {
+      if (r.status === 200 || r.status === 201) {
         const d = (r.data && r.data.data) || r.data || {};
-        const left = d.membership_days_left ?? d.days_left ?? d.remaining_days ?? d.expire_in_days;
+        const left =
+          d.member_days ??
+          d.membership_days_left ??
+          d.days_left ??
+          d.remaining_days ??
+          d.expire_in_days;
         log(`签到成功 | left=${left} | msg=${msg}`);
-        notify('DNSForge 签到成功', left != null ? '会员剩余 ' + left + ' 天' : (msg || '签到成功, 会员 +1 天'));
-      } else if (msg.includes('已签到') || msg.toLowerCase().includes('already')) {
-        log(`接口提示已签到: ${msg}`);
+        notify(
+          'DNSForge 签到成功',
+          left != null ? '会员剩余 ' + left + ' 天' : msg || '签到成功, 会员 +1 天'
+        );
+      } else if (
+        r.status === 409 ||
+        msg.includes('已签到') ||
+        msg.toLowerCase().includes('already')
+      ) {
+        log(`接口提示今日已签到: ${msg}`);
         notify('DNSForge 签到', '今日已签到');
       } else {
         throw new Error('签到失败: HTTP ' + r.status + (msg ? ' ' + msg : ''));
