@@ -33,6 +33,10 @@ function summarize(raw, maxLen = 300) {
   return s.length > maxLen ? s.slice(0, maxLen) + '...(truncated)' : s;
 }
 
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
 function http(method, path, body, token) {
   return new Promise((resolve) => {
     const headers = { 'Content-Type': 'application/json' };
@@ -58,15 +62,16 @@ function http(method, path, body, token) {
         (err) => {
           const errStr = String((err && (err.error || err.message)) || err || '网络异常');
           log(`请求失败: ${method} ${path} -> ${errStr}`);
-          resolve({ status: 0, data: null, raw: '' });
+          resolve({ status: 0, data: null, raw: '', err: errStr });
         }
       );
     } else {
       const options = { url, headers, body: payload };
       const cb = (err, resp, data) => {
         if (err) {
-          log(`请求失败: ${method} ${path} -> ${String(err)}`);
-          return resolve({ status: 0, data: null, raw: '' });
+          const errStr = String(err);
+          log(`请求失败: ${method} ${path} -> ${errStr}`);
+          return resolve({ status: 0, data: null, raw: '', err: errStr });
         }
         let json = null;
         try { json = JSON.parse(data); } catch (e) {}
@@ -102,6 +107,19 @@ function extractTokens(obj) {
     }
   }
   return null;
+}
+
+function isCheckedToday(data) {
+  if (!data || typeof data !== 'object') return false;
+  const d = data.data || data;
+  const done =
+    d.checked_today ??
+    d.checked_in_today ??
+    d.checkedIn ??
+    d.today_checked_in ??
+    d.is_checked_in ??
+    d.checked;
+  return done === true;
 }
 
 // ---------- 模式 1: http-response, 抓 token ----------
@@ -194,16 +212,10 @@ if (typeof $response !== 'undefined') {
         return $done();
       }
       if (st.status === 200 && st.data) {
-        const d = st.data.data || st.data;
-        const done =
-          d.checked_today ??
-          d.checked_in_today ??
-          d.checkedIn ??
-          d.today_checked_in ??
-          d.is_checked_in ??
-          d.checked;
+        const done = isCheckedToday(st.data);
         log(`签到状态查询结果 | done=${done}`);
-        if (done === true) {
+        if (done) {
+          const d = st.data.data || st.data;
           const daysInfo = d.member_days != null ? `，会员剩余 ${d.member_days} 天` : '';
           notify('DNSForge 签到', `今日已签到, 无需重复签到${daysInfo}`);
           return $done();
@@ -219,6 +231,24 @@ if (typeof $response !== 'undefined') {
         fail('登录已过期, 请打开 DNSForge 网页登录一次');
         return $done();
       }
+
+      // 若请求超时（status === 0），稍等后复查一次是否已实际入账
+      if (r.status === 0) {
+        log('签到请求超时(HTTP 0)，等待 2 秒后复查签到状态...');
+        await sleep(2000);
+        const checkAfter = await withAuth((t) => http('GET', '/me/checkin', null, t));
+        if (checkAfter.status === 200 && checkAfter.data && isCheckedToday(checkAfter.data)) {
+          const d = checkAfter.data.data || checkAfter.data;
+          const left = d.member_days;
+          log(`复查确认已签到 | left=${left}`);
+          notify(
+            'DNSForge 签到成功',
+            left != null ? `响应超时但已到账，会员剩余 ${left} 天` : '响应超时但已到账'
+          );
+          return $done();
+        }
+      }
+
       const msg = errText(r);
       if (r.status === 200 || r.status === 201) {
         const d = (r.data && r.data.data) || r.data || {};
