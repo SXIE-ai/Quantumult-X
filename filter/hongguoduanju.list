@@ -13,4 +13,5 @@ HOST-KEYWORD, video-modules, PROXY
 HOST-SUFFIX, volces, PROXY
 HOST-SUFFIX, manlaxycloud.com, PROXY
 HOST-SUFFIX, ydycdn.cn, PROXY
-Host-suffix, vegslb.com, PROXY
+HOST-SUFFIX, vegslb.com, PROXY
+HOST-SUFFIX, bdcgslb.com, PROXY
