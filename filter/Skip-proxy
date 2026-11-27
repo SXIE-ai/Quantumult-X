@@ -1,0 +1,11 @@
+
+HOST, www.baidu.com, DIRECT
+HOST, yunbusiness.ccb.com, DIRECT
+HOST, wxh.wo.cn, DIRECT
+HOST, gate.lagou.com, DIRECT
+HOST, www.abchina.com.cn, DIRECT
+HOST, www.shanbay.com, DIRECT
+HOST, login-service.mobile-bank.psbc.com, DIRECT
+HOST, mobile-bank.psbc.com, DIRECT
+HOST, id6.me, DIRECT
+HOST, msmp.abchina.com.cn, REJECT
